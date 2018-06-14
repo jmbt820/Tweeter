@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>@<?php print $others_data['account']; ?>のプロフィール画面</title>
+  <link rel="stylesheet" href="setting.css">
+</head>
+<body>
+  <header>
+    <p style="display:inline">
+      <ul class="table-ul">
+        <li><a href="<?php print ROOT_URL;?>/home.php">ホーム</a></li>
+        <li><a href="<?php print ROOT_URL;?>/profile_mine.php">マイページ</a></li>
+        <li><a href="<?php print ROOT_URL;?>/logout.php">ログアウト</a></li>
+      </ul>
+    </p>
+  </header>
+  <span class="prof">
+<?php if ($others_data !== FALSE) { ?>
+    <img src="picture/<?php print $others_data['picture']; ?>" width="100" height="100">
+    <p>名前:<?php print $others_data['name']; ?></p>
+    <p>ユーザー名:@<?php print $others_data['account']; ?></p>
+    <p>自己紹介:<?php print $others_data['myself']; ?></p>
+    <p>場所:<?php print $others_data['place']; ?></p>
+    <form action="follow.php" method="get">
+      <input type='hidden' name='follow_detail' value="<?php print $user_id; ?>">
+      <input type="submit" value="フォロー" class="square_btn">
+    </form>
+    <form action="follower.php" method="get">
+      <input type='hidden' name='follower_detail' value="<?php print $user_id; ?>">
+      <input type="submit" value="フォロワー" class="square_btn">
+    </form>
+    <form method="post">
+      <input type='hidden' name='user_id' value="<?php print $user_id; ?>">
+<?php if ($others_data['status'] === '1') { ?>
+      <input type='hidden' name='follow_status' value="0">
+      <button type='submit' name='update_follow' class="square_btn">フォロー解除</button>
+<?php } else { ?>
+      <input type='hidden' name='follow_status' value="1">
+      <button type='submit' name='update_follow' class="square_btn">フォローする</button>
+<?php } ?>
+    </form>
+  </span>
+  <span class="home_tweet">
+    <h1>発言一覧</h1>
+<?php if (count($tweet_data) > 0) { ?>
+    <table>
+      <tr>
+<?php foreach ($tweet_data as $tweet) { ?>
+        <td>
+          <img src="picture/<?php print $tweet['picture']; ?>" width="50" height="50">
+        </td>
+        <td class="tweet">
+          <p><?php print $tweet['name']; ?><a href="<?php print ROOT_URL;?>/profile_others.php?user_id=<?php print $tweet['user_id'];?>">@<?php print $tweet['account']; ?></a></p>
+          <p><?php print nl2br($tweet['tweet']); ?></p>
+          <p><?php print $tweet['tweet_date']; ?></p>
+        </td>
+      </tr>
+<?php }} else { ?>
+      <p>まだツイートしていません。</p>
+<?php }} else { ?>
+      <p>そのユーザーは存在しません。</p>
+<?php } ?>
+    </table>
+  </span>
+</body>
+</html>

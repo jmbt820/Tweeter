@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>フォロー一覧</title>
+  <link rel="stylesheet" href="setting.css">
+</head>
+<body>
+  <header>
+    <p style="display:inline">
+      <ul class="table-ul">
+        <li><a href="<?php print ROOT_URL;?>/home.php">ホーム</a></li>
+        <li><a href="<?php print ROOT_URL;?>/profile_mine.php">マイページ</a></li>
+        <li><a href="<?php print ROOT_URL;?>/logout.php">ログアウト</a></li>
+      </ul>
+    </p>
+  </header>
+  <span class="follow">
+    <h1>フォロー一覧</h1>
+<?php if ($error_message !=='') { ?>
+    <p><?php print $error_message;?></p>
+<?php } ?>
+<?php if (count($follow_data) > 0) { ?>
+<?php foreach ($follow_data as $follow) { ?>
+    <div class="follow_user">
+      <img src="picture/<?php print $follow['picture']; ?>" width="50" height="50">
+      <p><?php print $follow['name'];?><a href="<?php print ROOT_URL;?>/profile_others.php?user_id=<?php print $follow['user_id'];?>">@<?php print $follow['account']; ?></a></p>
+<?php if ($follow['user_id'] !== $my_id) { ?>
+      <form method="post">
+        <input type='hidden' name='follow_detail' value="<?php print $user_id; ?>">
+        <input type='hidden' name='follow_id' value="<?php print $follow['user_id']; ?>">
+<?php if ($follow['status'] === '1') { ?>
+        <input type='hidden' name='follow_status' value="0">
+        <button type='submit' name='update_follow' class="square_btn">フォロー解除</button>
+<?php } else { ?>
+        <input type='hidden' name='follow_status' value="1">
+        <button type='submit' name='update_follow' class="square_btn">フォローする</button>
+<?php } ?>
+      </form>
+<?php } ?>
+    </div>
+<?php }} else { ?>
+    <p>まだフォローしていません。</p>
+<?php } ?>
+  </span>
+</body>
+</html>

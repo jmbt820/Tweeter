@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>あなたのプロフィール画面</title>
+  <link rel="stylesheet" href="setting.css">
+</head>
+<body>
+  <header>
+    <p style="display:inline">
+      <ul class="table-ul">
+        <li><a href="<?php print ROOT_URL;?>/home.php">ホーム</a></li>
+        <li><a href="<?php print ROOT_URL;?>/profile_mine.php">マイページ</a></li>
+        <li><a href="<?php print ROOT_URL;?>/logout.php">ログアウト</a></li>
+      </ul>
+    </p>
+  </header>
+  <span class="prof">
+<?php print $error_message;?>
+    <img src="picture/<?php print $my_data['picture']; ?>" width="100" height="100">
+    <p>名前:<?php print $my_data['name']; ?></p>
+    <p>アカウント:@<?php print $my_data['account']; ?></p>
+    <p>自己紹介:<?php print $my_data['myself']; ?></p>
+    <p>場所:<?php print $my_data['place']; ?></p>
+    <form action="profile_edit.php" method="post">
+      <input type='hidden' name='name' value="<?php print $my_data['name']; ?>">
+      <input type='hidden' name='myself' value="<?php print $my_data['myself']; ?>">
+      <input type='hidden' name='place' value="<?php print $my_data['place']; ?>">
+      <input type="submit" value="プロフィールを編集"  class="square_btn">
+    </form>
+    <form action="follow.php" method="get">
+      <input type='hidden' name='follow_detail' value="<?php print $my_id; ?>">
+      <input type="submit" value="フォロー" class="square_btn">
+    </form>
+    <form action="follower.php" method="get">
+      <input type='hidden' name='follower_detail' value="<?php print $my_id; ?>">
+      <input type="submit" value="フォロワー" class="square_btn">
+    </form>
+    <br>
+    <form action="tweet.php" method="post">
+      <textarea name="tweet" rows="4" cols="35" placeholder="いまどうしてる？"></textarea>
+      <p>
+        <input type="checkbox" name="monologue" value="checked">ひとりごと
+        <input type="submit" value="ツイート" class="square_btn">
+      </p>
+    </form>
+  </span>
+  <span class="home_tweet">
+    <h1>発言一覧</h1>
+    <table>
+<?php if (count($tweet_data) > 0) {
+  foreach ($tweet_data as $tweet) { ?>
+      <tr>
+        <td>
+          <img src="picture/<?php print $tweet['picture']; ?>" width="50" height="50">
+        </td>
+<?php if ($tweet['status'] === '1') { ?>
+        <td class="tweet">
+<?php } else { ?>
+        <td class="monologue">
+<?php } ?>
+          <p><?php print $tweet['name']; ?><a href="<?php print ROOT_URL;?>/profile_others.php?user_id=<?php print $tweet['user_id']; ?>">@<?php print $tweet['account']; ?></a></p>
+          <p><?php print nl2br($tweet['tweet']);?></p>
+          <p><?php print $tweet['tweet_date']; ?></p>
+<?php if ($my_id === $tweet['user_id']) { ?>
+          <form method="post">
+            <input type='hidden' name='tweet_id' value="<?php print $tweet['tweet_id']; ?>">
+            <button type='submit' name='delete_tweet' class="delete_btn">削除</button>
+          </form>
+<?php } ?>
+        </td>
+      </tr>
+<?php }} else { ?>
+      <p>まだツイートしていません。</p>
+<?php } ?>
+    </table>
+  </span>
+</body>
+</html>

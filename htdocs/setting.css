@@ -1,0 +1,210 @@
+body {
+	background-color: #AADDFF;
+	color: #292F33;
+}
+
+textarea {
+    resize: none;
+}
+
+header {
+	position: fixed;
+	width: 100%;
+	height: 50px;
+	top: 0px;
+	left: 0px;
+	z-index: 1;
+	background-color: #00EEEE;
+	border-bottom-style: groove;
+}
+
+.table-ul {
+	width: 100%;
+  display: table;
+  table-layout: fixed;
+  text-align: center;
+}
+
+.table-ul li {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.block {
+	width: 350px;
+	height: auto;
+	background-color: #EEFFFF;
+	border-style: groove;
+	float: left;
+	margin: 80px 40px;
+	padding: 30px;
+	word-break: break-all
+}
+
+.follow {
+	width: 500px;
+	height: 100%;
+	background-color: #EEFFFF;
+	border-style: groove;
+	float: left;
+	margin: 80px 40px;
+	padding: 10px;
+}
+
+.follow_user {
+	width: 80%;
+	border-style: groove;
+	margin: 30px auto;
+	padding: 20px;
+	background-color: #CCFFFF;
+	word-break: break-all
+
+}
+
+.login {
+	width: 300px;
+	height: 300px;
+	background-color: #EEFFFF;
+	border-style: groove;
+	float: left;
+	margin: 80px 40px;
+  padding: 30px;
+}
+
+.register {
+	width: 300px;
+	height: 300px;
+	background-color: #EEFFFF;
+	border-style: groove;
+	float: left;
+	margin: 80px 40px;
+	padding: 30px;
+}
+
+.prof {
+	width: 300px;
+	height: 100%;
+	background-color: #EEFFFF;
+	border-style: groove;
+	float: left;
+	margin-top: 80px;
+	margin-right: 100px;
+	padding: 10px;
+	word-break: break-all
+}
+
+.home_tweet {
+	width: 500px;
+	height: 100%;
+	background-color: #EEFFFF;
+	border-style: groove;
+	float: left;
+	margin-top: 80px;
+	margin-right: 0px;
+	padding: 10px;
+}
+
+.square_btn{
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  color: #FFFFFF;
+  padding: 0.3em 0.5em;
+  background: #00BCD4;
+	margin: 2px;
+
+}
+
+.delete_btn{
+	position: absolute;
+	right: 20px;
+	bottom: 10px;
+  display: inline-block;
+  font-weight: bold;
+	color: #FFFFFF;
+  background: #000080;
+	margin: 2px;
+}
+
+.tweet {
+	position: relative;
+	display: inline-block;
+	padding: 0 15px;
+	min-width: 115px;
+	line-height: 34px;
+	background: #F1F1F1;
+	z-index: 0;
+	margin: 10px;
+	width: 320px;
+	line-height : 20px;
+	word-break: break-all
+}
+
+.tweet:before {
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: -8px;
+	margin-top: -9px;
+	display: block;
+	width: 0px;
+	height: 0px;
+	border-style: solid;
+	border-width: 9px 9px 9px 0;
+	border-color: transparent #F1F1F1 transparent transparent;
+	z-index: 0;
+}
+
+.tweet:after {
+	content: "";
+	position: absolute;
+	top: 50%; left: -12px;
+	margin-top: -10px;
+	display: block;
+	width: 0px;
+	height: 0px;
+	border-width: 10px 10px 10px 0;
+	z-index: -1;
+}
+
+.monologue {
+	position: relative;
+	display: inline-block;
+	padding: 0 15px;
+	width: auto;
+	min-width: 115px;
+	line-height: 34px;
+	color: #FFFFFF;
+	background: #888888;
+	z-index: 0;
+	margin: 10px;
+	width: 320px;
+	line-height : 20px;
+	word-break: break-all
+}
+
+.monologue:before {
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: -8px;
+	margin-top: -9px;
+	display: block;
+	width: 0px;
+	height: 0px;
+	border-style: solid;
+	border-width: 9px 9px 9px 0;
+	border-color: transparent #888888 transparent transparent;
+	z-index: 0;
+}
+
+.monologue:after {
+	content: "";
+	position: absolute;
+	top: 50%; left: -12px;
+	margin-top: -10px;
+	display: block;
+	width: 0px;
+	height: 0px;
+	z-index: -1;
+}

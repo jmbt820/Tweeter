@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>友達を検索する</title>
+  <link rel="stylesheet" href="setting.css">
+</head>
+<body>
+  <header>
+    <p style="display:inline">
+      <ul class="table-ul">
+        <li><a href="<?php print ROOT_URL;?>/home.php">ホーム</a></li>
+        <li><a href="<?php print ROOT_URL;?>/profile_mine.php">マイページ</a></li>
+        <li><a href="<?php print ROOT_URL;?>/logout.php">ログアウト</a></li>
+      </ul>
+    </p>
+  </header>
+  <span class="block">
+   <h1>友達を検索する</h1>
+<?php if ($message === '') { ?>
+   <img src="picture/<?php print $search['picture']; ?>" width="50" height="50">
+   <p><?php print $search['name'];?><a href="<?php print ROOT_URL;?>/profile_others.php?user_id=<?php print $search['user_id'];?>">@<?php print $search['account']; ?></a></p>
+<?php if ($search['user_id'] !== $my_id) { ?>
+   <form method="post">
+     <input type="hidden" name="search_mail" value="<?php print $mail; ?>">
+     <input type="hidden" name="user_id" value="<?php print $search['user_id']; ?>">
+<?php if ($search['status'] === '1') { ?>
+     <input type='hidden' name='follow_status' value="0">
+     <button type='submit' name='update_follow' class="square_btn">フォロー解除</button>
+<?php } else { ?>
+     <input type='hidden' name='follow_status' value="1">
+     <button type='submit' name='update_follow' class="square_btn">フォローする</button>
+<?php } ?>
+   </form>
+<?php }} else {
+    print $message;
+  } ?>
+ </span>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>プロフィールの編集</title>
+  <link rel="stylesheet" href="setting.css">
+</head>
+<body>
+  <header>
+    <p style="display:inline">
+      <ul class="table-ul">
+        <li><a href="<?php print ROOT_URL;?>/home.php">ホーム</a></li>
+        <li><a href="<?php print ROOT_URL;?>/profile_mine.php">マイページ</a></li>
+        <li><a href="<?php print ROOT_URL;?>/logout.php">ログアウト</a></li>
+      </ul>
+    </p>
+  </header>
+  <span class="block">
+    <h1>プロフィールの編集</h1>
+<?php
+if (count($error_message) > 0) {
+  foreach ($error_message as $error) {
+?>
+    <p><?php print $error; ?></p>
+<?php }} ?>
+    <form method="post" enctype="multipart/form-data">
+      <p>画像：<input type="file" name='picture' accept=".jpg,.gif,.png"></p>
+      <p>名前:<input type="text" name="name" value="<?php print $name;?>"></p>
+      <p>自己紹介:<input type="text" name="myself" value="<?php print $myself; ?>"></p>
+      <p>場所:<input type="text" name="place" value="<?php print $place;?>"></p>
+      <input type="submit" name="edit" value="完了" class="square_btn">
+    </form>
+  </span>
+</body>
+</html>
