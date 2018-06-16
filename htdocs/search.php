@@ -1,5 +1,5 @@
 <?php
-require_once '/home/jmbt820/include/conf/const.php';
+require_once '/var/www/html/Tweeter/include/const/const.php';
 require_once MODEL_DIRECTORY . '/function.php';
 
 if (isset($_SESSION) === FALSE) {

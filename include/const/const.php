@@ -1,5 +1,5 @@
 <?php
-define('INCLUDE_DIRECTORY', '/home/jmbt820/include'); //INCLUDEディレクトリへのパス
+define('INCLUDE_DIRECTORY', '/var/www/html/Tweeter/include'); //INCLUDEディレクトリへのパス
 define('MODEL_DIRECTORY', INCLUDE_DIRECTORY . '/model'); //MODELディレクトリへのパス
 define('VIEW_DIRECTORY', INCLUDE_DIRECTORY . '/view'); //VIEWディレクトリへのパス
 define('ROOT_URL', 'http://13.230.142.204/tweeter'); //ルートディレクトリへのURL

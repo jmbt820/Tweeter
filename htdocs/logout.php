@@ -1,6 +1,5 @@
 <?php
-
-require_once '/home/jmbt820/include/conf/const.php';
+require_once '/var/www/html/Tweeter/include/const/const.php';
 
 if (isset($_SESSION) === FALSE) {
   session_name('%*[cuHdJ+6o2th4E');
