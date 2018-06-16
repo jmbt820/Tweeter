@@ -4,7 +4,7 @@ define('MODEL_DIRECTORY', INCLUDE_DIRECTORY . '/model'); //MODELディレクト�
 define('VIEW_DIRECTORY', INCLUDE_DIRECTORY . '/view'); //VIEWディレクトリへのパス
 define('ROOT_URL', 'http://54.95.28.94'); //ルートのURL
 
-define('DB_HOST', 'tweeter.clymob4ieiaa.ap-northeast-1.rds.amazonaws.com'); //データベースのホスト名又はIPアドレス
+define('DB_HOST', 'tweeter.clymob4ieiaa.ap-northeast-1.rds.amazonaws.com'); //データベースのホスト名
 define('DB_USER', 'jmbt820'); //MySQLのユーザ名
 define('DB_PASSWD', '********'); //MySQLのパスワード
 define('DB_NAME', 'jmbt820_db'); // データベース名
