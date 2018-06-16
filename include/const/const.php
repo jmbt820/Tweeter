@@ -2,7 +2,7 @@
 define('INCLUDE_DIRECTORY', '/var/www/html/Tweeter/include'); //INCLUDEディレクトリへのパス
 define('MODEL_DIRECTORY', INCLUDE_DIRECTORY . '/model'); //MODELディレクトリへのパス
 define('VIEW_DIRECTORY', INCLUDE_DIRECTORY . '/view'); //VIEWディレクトリへのパス
-define('ROOT_URL', 'http://54.95.28.94'); //ルートディレクトリへのURL
+define('ROOT_URL', 'http://54.95.28.94'); //ルートのURL
 
 define('DB_HOST', 'tweeter.clymob4ieiaa.ap-northeast-1.rds.amazonaws.com'); //データベースのホスト名又はIPアドレス
 define('DB_USER', 'jmbt820'); //MySQLのユーザ名
